@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Define your data models here
+// For example, you can create a model for issues in your issue tracker application
+// This model will represent the issues in your application
+// You can add fields like title, description, status, createdAt, updatedAt, etc
+model Issue {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(255)
+  description String   @db.Text
+  status      Status   @default(OPEN)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum Status {
+  OPEN
+  IN_PROGRESS
+  CLOSED
+}
