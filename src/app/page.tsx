@@ -1,7 +1,10 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-import NavBar from "./NavBar";
+import React from "react";
+import { Button } from "@radix-ui/themes";
 
 export default function Home() {
-  return <div>Hello world!!</div>;
+  return (
+    <div>
+      <Button>new issue</Button>
+    </div>
+  );
 }
